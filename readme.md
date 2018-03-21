@@ -32,6 +32,19 @@ Designed to be a *very* simple way to deploy a windows application.
 npm run build
 ```
 
+You might see output that looks something like this:
+```bash
+c:\projects\DeployUtils\dist>install.exe
+Install Example Product - 5 steps.
+Build Step 1: Unpacking Release Zip... success
+Build Step 2: Unzipping Release... success
+Build Step 3: Copying Configuration... success
+Build Step 4: Stopping Bluetooth Service... success
+Build Step 5: Starting Bluetooth Service... success
+
+c:\projects\DeployUtils\dist>
+```
+
 4. Your install.exe has been created in the dist folder. All you need to do is run it (probably with elevated permissions) and the build steps will be executed in order.
 
 ## Features
