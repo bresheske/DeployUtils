@@ -14,9 +14,10 @@ export class Engine {
         }
 
         let result = true;
-        for (let i in build.steps) {
+        write(`${build.name} - ${build.steps.length} steps.`, '\x1b[32m');
+        for (let i = 0; i < build.steps.length; i++) {
             let step = build.steps[i];
-            let name = `Build Step ${i}${step.name ? `: ${step.name}` : ''}`;
+            let name = `Build Step ${i+1}${step.name ? `: ${step.name}` : ''}`;
             write(`${name}... `, undefined, false);
             let r = await step.work();
             let text = r ? 'success' : 'failure';
