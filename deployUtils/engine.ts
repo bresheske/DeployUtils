@@ -18,7 +18,7 @@ export class Engine {
             let step = build.steps[i];
             let name = `Build Step ${i}${step.name ? `: ${step.name}` : ''}`;
             write(`${name}... `, undefined, false);
-            let r = await step.work;
+            let r = await step.work();
             let text = r ? 'success' : 'failure';
             let color = r ? "\x1b[32m" : "\x1b[31m";
             write(text, color);
@@ -38,7 +38,7 @@ export class Build {
         this.engine = engine;
     }
 
-    step(step: Promise<boolean>, name?:string): Build {
+    step(step: () => Promise<boolean>, name?:string): Build {
         this.steps.push(new Step(step, name));
         return this;
     }
@@ -50,9 +50,9 @@ export class Build {
 }
 
 export class Step {
-    work: Promise<boolean>;
+    work: () => Promise<boolean>;
     name?: string;
-    constructor(work:Promise<boolean>, name?:string) {
+    constructor(work:() => Promise<boolean>, name?:string) {
         this.work = work;
         this.name = name;
     }

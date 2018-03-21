@@ -1,4 +1,3 @@
-let fs = require('async-file');
 let zip = require('decompress');
 
 // Function to unzip a zip file.
