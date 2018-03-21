@@ -32,6 +32,8 @@ Designed to be a *very* simple way to deploy a windows application.
 npm run build
 ```
 
+4. Your install.exe has been created in the dist folder. All you need to do is run it (probably with elevated permissions) and the build steps will be executed in order.
+
 You might see output that looks something like this:
 ```bash
 c:\projects\DeployUtils\dist>install.exe
@@ -44,8 +46,6 @@ Build Step 5: Starting Bluetooth Service... success
 
 c:\projects\DeployUtils\dist>
 ```
-
-4. Your install.exe has been created in the dist folder. All you need to do is run it (probably with elevated permissions) and the build steps will be executed in order.
 
 ## Features
 All features are stored in the deploysUtils/tools folder.  They contain some async wrappers around some common deployment functions like copying files, unpacking files from the executable, unzipping files, and starting and stopping windows services.  The list is surely to grow!
