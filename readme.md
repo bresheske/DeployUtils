@@ -1,12 +1,34 @@
 # DeployUtils
-Designed to be a *very* simple way to deploy a windows application. 
+Designed to be a *very* simple way to deploy a windows application. The tools are written in typescript.
 
 ## Usage
 
-1. Edit index.ts and add in the steps you need for your project. Sample code:
+1. Include the dependencies.
+
+```
+npm i nexe nexe-deploy-utils
+```
+
+2. Create a TS or JS main file for your node application, and add in some build steps:
 
 ```typescript
-// Just some simple build steps.
+import { Engine, write } from 'nexe-deploy-utils';
+
+(async() => {
+    let engine = new Engine();
+    await engine.describe('my sample package')
+        .step(() => write('This is step 1 in the deployment.'))
+        .exec();
+})();
+```
+
+That's it! You can test it by running 'node index.js'. 
+
+## A more Useful Example
+
+Say you had a few steps that looked like this:
+
+```typescript
 (async () => {
 
     let engine = new Engine();
@@ -21,31 +43,40 @@ Designed to be a *very* simple way to deploy a windows application.
 })();
 ```
 
-2. Add the resource files in the package.json file you wish to include:
+So in order to create a useful "install.exe", we'll need to tell nexe to package up the zip file inside of our resources folder.  We can do that by the following NPM script:
 
 ```json
 "build": "nexe -r resources/samplezip.zip -o dist/install.exe"
 ```
 
-3. Run the build command:
-```bash
-npm run build
+And now we can run 'npm run build' to create our dist/install.exe file.
+
+Running the install.exe as an administrator produces this output:
+
 ```
-
-4. Your install.exe has been created in the dist folder. All you need to do is run it (probably with elevated permissions) and the build steps will be executed in order.
-
-You might see output that looks something like this:
-```bash
-c:\projects\DeployUtils\dist>install.exe
 Install Example Product - 5 steps.
 Build Step 1: Unpacking Release Zip... success
 Build Step 2: Unzipping Release... success
 Build Step 3: Copying Configuration... success
 Build Step 4: Stopping Bluetooth Service... success
 Build Step 5: Starting Bluetooth Service... success
-
-c:\projects\DeployUtils\dist>
 ```
 
+And we have successfully deployed our application!
+
 ## Features
-All features are stored in the deploysUtils/tools folder.  They contain some async wrappers around some common deployment functions like copying files, unpacking files from the executable, unzipping files, and starting and stopping windows services.  The list is surely to grow!
+Similar to 'write', as shown above, other deployment tools exist for the developer.
+
+**copy**: Copies a file to a new location.
+
+**startService**: Starts a windows service.
+
+**stopService**: Stops a windows service.
+
+**unpack**: Unpacks a nexe-packed file inside of your executable to a new location. You can pack a file into your nexe-build executable using the '-r' switch.
+
+**unzip**: Unzips a zip file to a new location.
+
+**write**: Just a simple console logging tool that has some options for colors and newline characters.
+
+More features to come!

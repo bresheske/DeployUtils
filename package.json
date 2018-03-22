@@ -1,8 +1,9 @@
 {
-  "name": "deployutils",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "nexe-deploy-utils",
+  "version": "1.0.6",
+  "description": "Simple deployment utilties using NEXE",
+  "main": "npmdist/index.js",
+  "types" : "npmdist/index.d.ts",
   "scripts": {
     "watch": "tsc -w",
     "tsc": "tsc",
