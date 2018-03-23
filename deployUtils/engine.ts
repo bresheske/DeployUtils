@@ -8,8 +8,9 @@ export class Engine {
 
     async exec(build:Build): Promise<boolean> {
 
+        // Kick out early if we don't have any build steps defined.
         if (!build.steps || build.steps.length == 0) {
-            console.log(`Warning: No build steps defined for ${build.name}.`);
+            await write(`Warning: No build steps defined for ${build.name}.`);
             return true;
         }
 
@@ -18,12 +19,17 @@ export class Engine {
         for (let i = 0; i < build.steps.length; i++) {
             let step = build.steps[i];
             let name = `Build Step ${i+1}${step.name ? `: ${step.name}` : ''}`;
-            write(`${name}... `, undefined, false);
+            await write(`${name}... `, undefined, false);
             let r = await step.work();
             let text = r ? 'success' : 'failure';
             let color = r ? "\x1b[32m" : "\x1b[31m";
-            write(text, color);
+            await write(text, color);
             result = result && r;
+
+            // Kick out early if something broke.
+            if (!result) {
+                return false;
+            }
         }
         return result;
     }

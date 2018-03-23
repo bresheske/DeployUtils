@@ -1,13 +1,14 @@
 {
   "name": "nexe-deploy-utils",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "Simple deployment utilties using NEXE",
   "main": "npmdist/index.js",
   "types" : "npmdist/index.d.ts",
   "scripts": {
-    "watch": "tsc -w",
-    "tsc": "tsc",
-    "build": "nexe -r resources/samplezip.zip -o dist/install.exe"
+    "watch": "tsc index.ts examples/index.ts -w -lib ES2015",
+    "tsc": "tsc index.ts examples/index.ts -lib ES2015",
+    "pub": "tsc index.ts -lib ES2015 -outDir npmdist -declaration && npm publish",
+    "buildex": "nexe examples/index.js -r examples/samplezip.zip -o dist/install.exe"
   },
   "repository": {
     "type": "git",
