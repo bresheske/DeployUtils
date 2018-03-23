@@ -1,9 +1,9 @@
 {
   "name": "nexe-deploy-utils",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Simple deployment utilties using NEXE",
   "main": "npmdist/index.js",
-  "types" : "npmdist/index.d.ts",
+  "types": "npmdist/index.d.ts",
   "scripts": {
     "watch": "tsc index.ts examples/index.ts -w -lib ES2015",
     "tsc": "tsc index.ts examples/index.ts -lib ES2015",
@@ -25,6 +25,7 @@
     "async-file": "^2.0.2",
     "decompress": "^4.2.0",
     "extract-zip": "^1.6.6",
+    "ncp": "^2.0.0",
     "nexe": "^2.0.0-rc.26",
     "typescript": "^2.7.2",
     "web-request": "^1.0.7"

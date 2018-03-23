@@ -67,7 +67,11 @@ And we have successfully deployed our application!
 ## Features
 Similar to 'write', as shown above, other deployment tools exist for the developer.
 
-**copy**: Copies a file to a new location.
+**copy**: Copies folders and files to a new location.
+
+**deleteService**: Deletes a windows service.
+
+**newService**: Adds a new windows service.
 
 **startService**: Starts a windows service.
 

@@ -19,7 +19,7 @@ export class Engine {
         for (let i = 0; i < build.steps.length; i++) {
             let step = build.steps[i];
             let name = `Build Step ${i+1}${step.name ? `: ${step.name}` : ''}`;
-            await write(`${name}... `, undefined, false);
+            await write(`${name}... `, undefined, true, false);
             let r = await step.work();
             let text = r ? 'success' : 'failure';
             let color = r ? "\x1b[32m" : "\x1b[31m";

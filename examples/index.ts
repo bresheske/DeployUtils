@@ -8,6 +8,8 @@ import { write } from '../deployUtils/tools/write';
 import { copy } from '../deployUtils/tools/copy';
 import { stopService } from '../deployUtils/tools/stopService';
 import { startService } from '../deployUtils/tools/startService';
+import { newService } from '../deployUtils/tools/newService';
+import { deleteService } from '../deployUtils/tools/deleteService';
 
 // Just some simple build steps.
 (async () => {
@@ -17,8 +19,12 @@ import { startService } from '../deployUtils/tools/startService';
         .step(() => unpack('examples/samplezip.zip', 'release.zip'), "Unpacking Release Zip")
         .step(() => unzip('release.zip', 'release'), "Unzipping Release")
         .step(() => copy('release/example.txt', 'release/test.txt'), 'Copying Configuration')
-        .step(() => stopService('bthserv'), 'Stopping Bluetooth Service')
-        .step(() => startService('bthserv'), 'Starting Bluetooth Service')
+        .step(() => copy('release', 'release.1.0.0'), 'Deep Copying Release')
+        .step(() => stopService('fax'), 'Stopping Fax Service')
+        .step(() => deleteService('fax'), 'Deleting Fax Service')
+        .step(() => newService('fax', 'C:\\WINDOWS\\system32\\fxssvc.exe'), 'Creating Fax Service')
+        .step(() => startService('fax'), 'Starting Fax Service')
+        .step(() => stopService('fax'), 'Stopping Fax Service')
         .exec();
 
 })();
