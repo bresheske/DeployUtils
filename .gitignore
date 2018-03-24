@@ -1,3 +1,4 @@
 *.js
+*.d.ts
 npmdist
 node_modules

@@ -71,6 +71,8 @@ Similar to 'write', as shown above, other deployment tools exist for the develop
 
 **deleteService**: Deletes a windows service.
 
+**killAll**: Given a folder, kills all processes that have a handle (or file lock) on the folder's children. This tool uses [handle](https://docs.microsoft.com/en-us/sysinternals/downloads/handle).
+
 **newService**: Adds a new windows service.
 
 **startService**: Starts a windows service.
