@@ -1,5 +1,6 @@
 export { Engine } from './deployUtils/engine';
 
+export { addSSL } from './deployUtils/tools/addSSL';
 export { assert } from './deployUtils/tools/assert';
 export { copy } from './deployUtils/tools/copy';
 export { deleteService } from './deployUtils/tools/deleteService';
