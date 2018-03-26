@@ -3,6 +3,7 @@ let afs = require('async-file');
 let ncp = require('ncp').ncp;
 
 import { write } from './write';
+import { mkdir } from './mkdir';
 
 export async function copy(file:string, dest:string): Promise<boolean> {
     return new Promise<boolean>(async (res, rej) => {
@@ -22,6 +23,7 @@ export async function copy(file:string, dest:string): Promise<boolean> {
     
         // else if we have a directory, deep copy.
         if (stats.isDirectory()) {
+            mkdir(dest);
             ncp(file, dest, (err) => {
                 if (err && err.length > 0) {
                     write(err, null, false);
