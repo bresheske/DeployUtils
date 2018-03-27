@@ -14,7 +14,7 @@ export async function killAll(folder:string): Promise<boolean> {
             res(false);
         }
 
-        let exepath = `${__dirname}\\..\\..\\bin\\handle64`;
+        let exepath = `handle64`;
         write(`KillAll: Calling handle in path: ${exepath}`, null, false);
 
         exec(`${exepath} ${folder} -accepteula`, (err:string, stdout:string, stderr:string) => {

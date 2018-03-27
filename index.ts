@@ -7,6 +7,7 @@ export { deleteService } from './deployUtils/tools/deleteService';
 export { deleteSite } from './deployUtils/tools/deleteSite';
 export { killAll } from './deployUtils/tools/killAll';
 export { mkdir } from './deployUtils/tools/mkdir';
+export { newApp } from './deployUtils/tools/newApp';
 export { newAppPool } from './deployUtils/tools/newAppPool';
 export { newService } from './deployUtils/tools/newService';
 export { newSite } from './deployUtils/tools/newSite';

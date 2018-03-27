@@ -1,6 +1,6 @@
 let fs = require('fs');
 let afs = require('async-file');
-let ncp = require('ncp').ncp;
+let fse = require('fs-extra');
 
 import { write } from './write';
 import { mkdir } from './mkdir';
@@ -23,14 +23,20 @@ export async function copy(file:string, dest:string): Promise<boolean> {
     
         // else if we have a directory, deep copy.
         if (stats.isDirectory()) {
-            mkdir(dest);
-            ncp(file, dest, (err) => {
-                if (err && err.length > 0) {
-                    write(err, null, false);
-                    res(false);
-                }
-                res(true);
-            });
+            try {
+                await mkdir(dest);
+                fse.copy(file, dest, (err) => {
+                    if (err) {
+                        write(err, null, false);
+                        res(false);
+                    }
+                    res(true);
+                })
+            }
+            catch (err) {
+                write(`copy: error copying using ncp. ${err}`, null, false);
+                res(false);
+            }
         }
     });
 }
