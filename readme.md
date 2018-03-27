@@ -67,11 +67,35 @@ And we have successfully deployed our application!
 ## Features
 Similar to 'write', as shown above, other deployment tools exist for the developer.
 
+### Basic Tools
 **copy**: Copies folders and files to a new location.
 
-**deleteService**: Deletes a windows service.
+**write**: Just a simple console logging tool that has some options for colors and newline characters.
+
+**unpack**: Unpacks a nexe-packed file inside of your executable to a new location. You can pack a file into your 
+nexe-build executable using the '-r' switch.
+
+**unzip**: Unzips a zip file to a new location.
+
+**assert**: Fails if your assert expression returns false. 
 
 **killAll**: Given a folder, kills all processes that have a handle (or file lock) on the folder's children. This tool uses [handle](https://docs.microsoft.com/en-us/sysinternals/downloads/handle).
+
+**mkdir**: Makes directories (and sub directories) using the windows 'mkdir' command. This is similar to linux 'mkdir -p'.
+
+### IIS Tools
+**addSSL**: Adds an SSL certificate to an IIS port. Affects all websites running under that port.
+
+**deleteSite**: Deletes an IIS website.
+
+**newSite**: Adds an IIS website.
+
+**startSite** Starts an IIS website. However, sites should auto-start on addition if they are configured correctly.
+
+**newAppPool**: Adds an application pool into IIS.
+
+### Service Tools
+**deleteService**: Deletes a windows service.
 
 **newService**: Adds a new windows service.
 
@@ -79,10 +103,5 @@ Similar to 'write', as shown above, other deployment tools exist for the develop
 
 **stopService**: Stops a windows service.
 
-**unpack**: Unpacks a nexe-packed file inside of your executable to a new location. You can pack a file into your nexe-build executable using the '-r' switch.
-
-**unzip**: Unzips a zip file to a new location.
-
-**write**: Just a simple console logging tool that has some options for colors and newline characters.
 
 More features to come!
