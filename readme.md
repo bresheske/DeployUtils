@@ -68,46 +68,46 @@ And we have successfully deployed our application!
 Similar to 'write', as shown above, other deployment tools exist for the developer.
 
 ### Basic Tools
-**copy**: Copies folders and files to a new location.
+- **copy**: Copies folders and files to a new location.
 
-**write**: Just a simple console logging tool that has some options for colors and newline characters.
+- **write**: Just a simple console logging tool that has some options for colors and newline characters.
 
-**unpack**: Unpacks a nexe-packed file inside of your executable to a new location. You can pack a file into your 
+- **unpack**: Unpacks a nexe-packed file inside of your executable to a new location. You can pack a file into your 
 nexe-build executable using the '-r' switch.
 
 *note*: Nexe uses globby for glob parsing. You can include multiple files with brackets: "{./fileone,./filetwo}".
 
-**unzip**: Unzips a zip file to a new location.
+- **unzip**: Unzips a zip file to a new location.
 
-**assert**: Fails if your assert expression returns false. 
+- **assert**: Fails if your assert expression returns false. 
 
-**killAll**: Given a folder, kills all processes that have a handle (or file lock) on the folder's children. This tool uses [handle](https://docs.microsoft.com/en-us/sysinternals/downloads/handle).
+- **killAll**: Given a folder, kills all processes that have a handle (or file lock) on the folder's children. This tool uses [handle](https://docs.microsoft.com/en-us/sysinternals/downloads/handle).
 
 *note*: To use killall, you must add handle64 (located in ./node_modules/nexe-deploy-utils/bin/handle64) and unpack it as './handle64.exe'.
 
-**mkdir**: Makes directories (and sub directories) using the windows 'mkdir' command. This is similar to linux 'mkdir -p'.
+- **mkdir**: Makes directories (and sub directories) using the windows 'mkdir' command. This is similar to linux 'mkdir -p'.
 
 ### IIS Tools
-**addSSL**: Adds an SSL certificate to an IIS port. Affects all websites running under that port.
+- **addSSL**: Adds an SSL certificate to an IIS port. Affects all websites running under that port.
 
-**deleteSite**: Deletes an IIS website.
+- **deleteSite**: Deletes an IIS website.
 
-**newApp**: Adds a new application under an existing IIS website.
+- **newApp**: Adds a new application under an existing IIS website.
 
-**newSite**: Adds an IIS website.
+- **newSite**: Adds an IIS website.
 
-**startSite** Starts an IIS website. However, sites should auto-start on addition if they are configured correctly.
+- **startSite** Starts an IIS website. However, sites should auto-start on addition if they are configured correctly.
 
-**newAppPool**: Adds an application pool into IIS.
+- **newAppPool**: Adds an application pool into IIS.
 
 ### Service Tools
-**deleteService**: Deletes a windows service.
+- **deleteService**: Deletes a windows service.
 
-**newService**: Adds a new windows service.
+- **newService**: Adds a new windows service.
 
-**startService**: Starts a windows service.
+- **startService**: Starts a windows service.
 
-**stopService**: Stops a windows service.
+- **stopService**: Stops a windows service.
 
 
 More features to come!
