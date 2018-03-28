@@ -1,9 +1,9 @@
 import { write } from "./write";
 
 let exec = require('child_process').exec;
-export async function newAppPool(name:string, version:string="v4.0", pipeline:string="Integrated", failonduplicate:boolean = true): Promise<boolean> {
+export async function newAppPool(name:string, identity="NetworkService", version:string="v4.0", pipeline:string="Integrated", failonduplicate:boolean = true): Promise<boolean> {
     return new Promise<boolean>(async (res, rej) => {
-        exec(`%systemroot%\\system32\\inetsrv\\AppCmd.exe add apppool /name:"${name}" /managedRuntimeVersion:"${version}" /managedPipelineMode:"${pipeline}"`, 
+        exec(`%systemroot%\\system32\\inetsrv\\AppCmd.exe add apppool /name:"${name}" /managedRuntimeVersion:"${version}" /managedPipelineMode:"${pipeline}" /processModel.identityType:"${identity}"`, 
         (err:string, stdout:string, stderr:string) => {
 
             if (err) {
