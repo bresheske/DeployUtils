@@ -5,6 +5,7 @@ export { assert } from './deployUtils/tools/assert';
 export { copy } from './deployUtils/tools/copy';
 export { deleteService } from './deployUtils/tools/deleteService';
 export { deleteSite } from './deployUtils/tools/deleteSite';
+export { downloadFile } from './deployUtils/tools/downloadFile';
 export { killAll } from './deployUtils/tools/killAll';
 export { mkdir } from './deployUtils/tools/mkdir';
 export { newApp } from './deployUtils/tools/newApp';
