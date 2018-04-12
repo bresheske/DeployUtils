@@ -5,7 +5,7 @@ let fse = require('fs-extra');
 import { write } from './write';
 import { mkdir } from './mkdir';
 
-export async function copy(file:string, dest:string, failonnonexist:boolean = true, filter:Promise<boolean> = null): Promise<boolean> {
+export async function copy(file:string, dest:string, failonnonexist:boolean = true, filter:() => Promise<boolean> = null): Promise<boolean> {
     return new Promise<boolean>(async (res, rej) => {
         // first check if the file/folder exists.
         let exists = await afs.exists(file);
