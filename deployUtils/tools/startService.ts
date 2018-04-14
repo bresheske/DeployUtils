@@ -7,7 +7,7 @@ export async function startService(name:string, failonalreadystarted:boolean = f
         exec(`net start ${name}`, (err:string, stdout:string, stderr:string) => {
             if (err) {
                 let r = /has already been started/;
-                if (r.test(stdout)) {
+                if (r.test(err)) {
                     write(`startService: Service "${name}" has already been started.`, null, false);
                     res(!failonalreadystarted);
                 }
