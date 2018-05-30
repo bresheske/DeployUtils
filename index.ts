@@ -15,6 +15,7 @@ export { newSite } from './deployUtils/tools/newSite';
 export { startService } from './deployUtils/tools/startService';
 export { startSite } from './deployUtils/tools/startSite';
 export { stopService } from './deployUtils/tools/stopService';
+export { stopSite } from './deployUtils/tools/stopSite';
 export { unpack } from './deployUtils/tools/unpack';
 export { unzip } from './deployUtils/tools/unzip';
 export { write } from './deployUtils/tools/write';
